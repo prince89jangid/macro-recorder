@@ -22,6 +22,8 @@ with open("test.txt", "r") as file:
             x = int(pair[0])
             y = int(pair[1])
 
+            print(x, " ", y)
+
             pyautogui.click(x, y)
             time.sleep(mousedelay)
 
@@ -29,6 +31,8 @@ with open("test.txt", "r") as file:
 
             if pair[0].startswith("'") and pair[0].endswith("'") == True:
                 print(pair[0][1])
+
+                print(f"{pair[0][1]}")
 
                 pyautogui.press(f"{pair[0][1]}")
                 time.sleep(keyDelay)
