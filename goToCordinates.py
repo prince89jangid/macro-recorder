@@ -2,6 +2,8 @@
 import pyautogui
 import time
 
+openingTime = 1
+
 pyautogui.PAUSE = 0.5
 
 
@@ -18,7 +20,7 @@ with open("test.txt", "r") as file:
         y = int(pair[1])
 
         pyautogui.click(x, y)
-        time.sleep(4)
+        time.sleep(openingTime)
 
 
 print("done")

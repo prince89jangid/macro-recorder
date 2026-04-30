@@ -3,10 +3,6 @@
 from pynput import mouse, keyboard
 
 
-def on_move(x, y):
-    pass
-
-
 def on_click(x, y, button, isPressed):
 
     if button == mouse.Button.middle:
@@ -18,8 +14,33 @@ def on_click(x, y, button, isPressed):
             file.write(f"{x} {y} \n")
 
 
-with mouse.Listener(on_move=on_move, on_click=on_click) as listner:
-    listner.join()
+def on_press(key):
+    if key == keyboard.Key.esc:
+        print("esc pressed")
+        return False
+    
+    
+    print(f"{key}")
+    
+    
+    with open("test.txt", "a") as file:
+        file.write(f"{key} \n")
 
 
-print('ho gaye na get') 
+def on_release(key):
+    pass
+
+
+def on_move(x, y):
+    pass
+
+
+mouseEvent = mouse.Listener(on_move=on_move, on_click=on_click)
+keboardEvent = keyboard.Listener(on_press=on_press, on_release=on_release)
+
+
+mouseEvent.start()
+keboardEvent.start()
+
+mouseEvent.join()
+keboardEvent.join()

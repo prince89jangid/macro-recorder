@@ -20,7 +20,7 @@ def on_click(x, y, button, isPressed):
 
 def on_press(key):
     if key == keyboard.Key.esc:
-        return 
+        return
     print(f"you pressed: {key}")
 
 
