@@ -8,7 +8,7 @@ pyautogui.PAUSE = 0.5
 
 
 print("system is ready in 5 seconds")
-time.sleep(5)
+# time.sleep(5)
 
 with open("test.txt", "r") as file:
     content = file.read().strip()
@@ -16,10 +16,20 @@ with open("test.txt", "r") as file:
 
     for r in sub:
         pair = r.split()
-        x = int(pair[0])
-        y = int(pair[1])
 
-        pyautogui.click(x, y)
+        if pair[0].isdigit() == True and pair[1].isdigit() == True:
+            x = int(pair[0])
+            y = int(pair[1])
+
+            pyautogui.click(x, y)
+
+        else:
+
+            if pair[0].startswith("'") and pair[0].endswith("'") == True:
+                print(pair[0][1])
+                
+                pyautogui.press(f"{pair[0][1]}")
+
         time.sleep(openingTime)
 
 
