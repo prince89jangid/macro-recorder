@@ -2,7 +2,8 @@
 import pyautogui
 import time
 
-openingTime = 1
+mousedelay = 3
+keyDelay = 0.5
 
 pyautogui.PAUSE = 0.5
 
@@ -22,15 +23,15 @@ with open("test.txt", "r") as file:
             y = int(pair[1])
 
             pyautogui.click(x, y)
+            time.sleep(mousedelay)
 
         else:
 
             if pair[0].startswith("'") and pair[0].endswith("'") == True:
                 print(pair[0][1])
-                
-                pyautogui.press(f"{pair[0][1]}")
 
-        time.sleep(openingTime)
+                pyautogui.press(f"{pair[0][1]}")
+                time.sleep(keyDelay)
 
 
 print("done")
