@@ -2,14 +2,14 @@
 import pyautogui
 import time
 
-mousedelay = 3
-keyDelay = 0.5
+mousedelay = 4
+keyDelay = 0.2
 
 pyautogui.PAUSE = 0.5
 
 
 print("system is ready in 5 seconds")
-# time.sleep(5)
+time.sleep(5)
 
 with open("test.txt", "r") as file:
     content = file.read().strip()
@@ -35,6 +35,11 @@ with open("test.txt", "r") as file:
                 print(f"{pair[0][1]}")
 
                 pyautogui.press(f"{pair[0][1]}")
+                time.sleep(keyDelay)
+
+            else:
+                keyInput = pair[0].split(".")
+                pyautogui.press(f"{keyInput[1]}")
                 time.sleep(keyDelay)
 
 

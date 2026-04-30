@@ -12,6 +12,9 @@ def on_click(x, y, button, isPressed):
         print(x, " ", y)
         with open("test.txt", "a") as file:
             file.write(f"{x} {y} \n")
+            
+             
+            
 
 
 def on_press(key):
