@@ -2,8 +2,8 @@
 import pyautogui
 import time
 
-mousedelay = 4
-keyDelay = 1
+mousedelay = 5
+keyDelay = 3
 
 pyautogui.PAUSE = 0.5
 
